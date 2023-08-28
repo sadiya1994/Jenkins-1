@@ -4,7 +4,9 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', credentialsId: '<CREDS>', url: 'https://github.com/sumeetninawe/tf-tuts'
+                     
+                   checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/sadiya1994/Jenkins-1.git']])
+
             }
         }
         stage('Terraform init') {
@@ -20,5 +22,6 @@ pipeline {
         
     }
 }
+
 
 
