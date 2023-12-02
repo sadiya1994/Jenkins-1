@@ -7,11 +7,13 @@ provider "aws" {
 }
 
 
-resource "aws_s3_bucket" "my-califo-14032257" {
-  bucket = "sadiya-0986"
+resource "aws_instance" "web" {
+  ami           = "ami-09f67f6dc966a7829"
+  instance_type = "t3.micro"
+  availability_zone = "us-west-1a"
+  key_name = "jenkins_key_pair"
 
   tags = {
-    Name        = "My bucket"
-
+    Name = "HelloWorld"
   }
 }
